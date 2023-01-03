@@ -12,6 +12,7 @@ import {
   Burger,
   useMantineTheme,
 } from '@mantine/core';
+import ThemeButton from '../components/ThemeButton'
 
 export default function MantineShell() {
   const theme = useMantineTheme();
@@ -27,7 +28,8 @@ export default function MantineShell() {
       asideOffsetBreakpoint="sm"
       navbar={
         <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Text>Application navbar</Text>
+          <ThemeButton/>
+        
         </Navbar>
       }
       aside={
@@ -55,7 +57,18 @@ export default function MantineShell() {
               />
             </MediaQuery>
 
-            <Text>Application header</Text>
+            <Text sx={{
+        fontSize: 18,
+
+        '&:hover': {
+          backgroundColor: '#eee',
+        },
+
+        '@media (max-width: 755px)': {
+          fontSize: 14,
+        },
+      }}>DeSo ReactJS Social App Template</Text>
+        
           </div>
         </Header>
       }
