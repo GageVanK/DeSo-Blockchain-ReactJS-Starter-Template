@@ -5,9 +5,11 @@ import Notifications from './pages/Notifications'
 import Discover from './pages/Discover'
 import Home from './pages/Home'
 import Messages from './pages/Messages'
-
+import MantineShell from './components/MantineShell'
 function App() {
   return (
+
+    <MantineShell>
     <BrowserRouter>
       <Routes>
         <Route path="/profile" element={ <Profile /> } />
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={ <Home /> } />
       </Routes>
     </BrowserRouter>
+
+    </MantineShell>
   );
 }
 
