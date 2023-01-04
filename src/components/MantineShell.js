@@ -145,7 +145,7 @@ export default function MantineShell() {
           
          
           <Navbar.Section grow mt="xl">
-         
+          <ThemeButton/>
           {links}
          
           </Navbar.Section>
@@ -183,7 +183,7 @@ export default function MantineShell() {
 
           <div style={{ display: 'flex', marginTop: -30, alignItems: 'right', float: 'right', height: '100%' }}>
           
-          <ThemeButton/>
+          
         {isLoggedIn ? (
         <Button style={{ width: 111 }} onClick={() => setIsLoggedIn(false)}>Logout</Button>
           ) : (
