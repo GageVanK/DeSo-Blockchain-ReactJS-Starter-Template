@@ -1,7 +1,7 @@
 //Using Matine UI to build out frontend.
 //Docs: https://mantine.dev/core/app-shell/
 import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Profile from '../pages/Profile'
 import Wallet from '../pages/Wallet'
 import Notifications from '../pages/Notifications'
@@ -18,7 +18,8 @@ import {
   MediaQuery,
   Burger,
   useMantineTheme,
-  createStyles
+  createStyles, 
+  NavLink
 } from '@mantine/core';
 import {
   IconBellRinging,
@@ -107,7 +108,9 @@ export default function MantineShell() {
   const [active, setActive] = useState('Billing');
 
   const links = data.map((item) => (
+    //<Link path=item.link
     <a
+      to = {item.link}
       className={cx(classes.link, { [classes.linkActive]: item.label === active })}
       href={item.link}
       key={item.label}
@@ -119,8 +122,10 @@ export default function MantineShell() {
         window.location.href = item.link;
       }}
     >
+      
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
+      
     </a>
   ));
 
@@ -142,6 +147,7 @@ export default function MantineShell() {
          
           <Navbar.Section grow mt="xl">
           {links}
+          
           </Navbar.Section>
         </Navbar>
       }
