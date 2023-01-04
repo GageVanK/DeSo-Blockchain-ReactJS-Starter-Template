@@ -19,7 +19,6 @@ import {
   Burger,
   useMantineTheme,
   createStyles, 
-  NavLink
 } from '@mantine/core';
 import {
   IconBellRinging,
@@ -60,7 +59,8 @@ const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
-      width: 260,
+      
+     
 
       '&:hover': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
@@ -69,6 +69,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
         [`& .${icon}`]: {
           color: theme.colorScheme === 'dark' ? theme.white : theme.black,
         },
+        
       },
     },
 
@@ -86,6 +87,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
         [`& .${icon}`]: {
           color: theme.fn.variant({ variant: 'light', color: theme.primaryColor }).color,
         },
+        
       },
     },
   };
