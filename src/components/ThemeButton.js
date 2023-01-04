@@ -1,5 +1,5 @@
 import { ActionIcon, useMantineColorScheme } from '@mantine/core';
-import { IconSun, IconMoonStars } from '@tabler/icons';
+import { IconSun, IconMoon } from '@tabler/icons';
 
 export default function ThemeButton() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
@@ -12,7 +12,7 @@ export default function ThemeButton() {
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
     >
-      {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
+      {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
     </ActionIcon>
   );
 }
