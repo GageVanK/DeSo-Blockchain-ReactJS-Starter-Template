@@ -142,13 +142,12 @@ export default function MantineShell() {
 
       navbar={
         <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-          <Navbar.Section>
-          <ThemeButton/>
-          </Navbar.Section>
+          
          
           <Navbar.Section grow mt="xl">
+         
           {links}
-          
+         
           </Navbar.Section>
         </Navbar>
       }
@@ -181,11 +180,14 @@ export default function MantineShell() {
             <Text component={Link} to='/' sx={{ fontSize: 18, fontWeight: 'bold'}}>DeSo ReactJS Template</Text>
         
           </div>
-          <div style={{ display: 'flex', marginTop: -32, float: 'right', height: '100%' }}>
+
+          <div style={{ display: 'flex', marginTop: -30, alignItems: 'right', float: 'right', height: '100%' }}>
+          
+          <ThemeButton/>
         {isLoggedIn ? (
-        <Button onClick={() => setIsLoggedIn(false)}>Logout</Button>
+        <Button style={{ width: 111 }} onClick={() => setIsLoggedIn(false)}>Logout</Button>
           ) : (
-        <Button onClick={() => setIsLoggedIn(true)}>Login</Button>
+        <Button style={{ width: 111 }} onClick={() => setIsLoggedIn(true)}>Login</Button>
           )}
         </div>
         </Header>

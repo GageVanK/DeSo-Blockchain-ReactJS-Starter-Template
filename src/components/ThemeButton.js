@@ -7,10 +7,11 @@ export default function ThemeButton() {
 
   return (
     <ActionIcon
-      variant="outline"
+      
       color={dark ? 'yellow' : 'blue'}
       onClick={() => toggleColorScheme()}
       title="Toggle color scheme"
+      
     >
       {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
     </ActionIcon>
