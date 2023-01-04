@@ -60,6 +60,7 @@ const useStyles = createStyles((theme, _params, getRef) => {
       padding: `${theme.spacing.xs}px ${theme.spacing.sm}px`,
       borderRadius: theme.radius.sm,
       fontWeight: 500,
+      width: 260,
 
       '&:hover': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
@@ -101,14 +102,18 @@ const data = [
   { link: '/', label: 'Settings', icon: IconSettings },
 ];
 
+
+
 export default function MantineShell() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   const { classes, cx } = useStyles();
   const [active, setActive] = useState('Billing');
+ 
 
   const links = data.map((item) => (
-    //<Link path=item.link
+    
+    
     <a
       to = {item.link}
       className={cx(classes.link, { [classes.linkActive]: item.label === active })}
@@ -117,19 +122,22 @@ export default function MantineShell() {
       onClick={(event) => {
         event.preventDefault();
         setActive(item.label);
-
-        //This was is my way of bypassing react-router-dom Link to navigate between pages
-        window.location.href = item.link;
-      }}
-    >
       
+      }}
+      
+    >
+      <Link to={item.link} className={classes.link}>
       <item.icon className={classes.linkIcon} stroke={1.5} />
       <span>{item.label}</span>
+      </Link>
       
     </a>
+    
+    
   ));
 
   return (
+    <BrowserRouter>
     <AppShell
       styles={{
         main: {
@@ -183,7 +191,7 @@ export default function MantineShell() {
         </Header>
       }
     >
-      <BrowserRouter>
+      
       <Routes>
         <Route path="/profile" element={ <Profile /> } />
         <Route path="/messages" element={ <Messages /> } />
@@ -192,7 +200,8 @@ export default function MantineShell() {
         <Route path="/wallet" element={ <Wallet/> } />
         <Route path="/" element={ <Home /> } />
       </Routes>
-    </BrowserRouter>
+    
     </AppShell>
+    </BrowserRouter>
   );
 }
