@@ -19,6 +19,7 @@ import {
   Burger,
   useMantineTheme,
   createStyles, 
+  Button
 } from '@mantine/core';
 import {
   IconBellRinging,
@@ -100,6 +101,7 @@ export default function MantineShell() {
   const [opened, setOpened] = useState(false);
   const { classes, cx } = useStyles();
   const [active, setActive] = useState('Billing');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
  
 
   const links = data.map((item) => (
@@ -176,9 +178,16 @@ export default function MantineShell() {
             </MediaQuery>
             
 
-            <Text component={Link} to='/' sx={{ fontSize: 18, fontWeight: 'bold'}}>DeSo ReactJS Social App Template</Text>
+            <Text component={Link} to='/' sx={{ fontSize: 18, fontWeight: 'bold'}}>DeSo ReactJS Template</Text>
         
           </div>
+          <div style={{ display: 'flex', marginTop: -32, float: 'right', height: '100%' }}>
+        {isLoggedIn ? (
+        <Button onClick={() => setIsLoggedIn(false)}>Logout</Button>
+          ) : (
+        <Button onClick={() => setIsLoggedIn(true)}>Login</Button>
+          )}
+        </div>
         </Header>
       }
     >
