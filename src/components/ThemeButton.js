@@ -13,7 +13,7 @@ export default function ThemeButton() {
       title="Toggle color scheme"
       
     >
-      {dark ? <IconSun size={18} /> : <IconMoon size={18} />}
+      {dark ? <IconSun size={22} /> : <IconMoon size={24} />}
     </ActionIcon>
   );
 }
