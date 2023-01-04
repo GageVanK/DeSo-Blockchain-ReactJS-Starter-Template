@@ -176,7 +176,7 @@ export default function MantineShell() {
             </MediaQuery>
             
 
-            <Text sx={{ fontSize: 18, fontWeight: 'bold'}}>DeSo ReactJS Social App Template</Text>
+            <Text component={Link} to='/' sx={{ fontSize: 18, fontWeight: 'bold'}}>DeSo ReactJS Social App Template</Text>
         
           </div>
         </Header>
