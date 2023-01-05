@@ -1,5 +1,6 @@
 //Using Matine UI to build out frontend.
 //Docs: https://mantine.dev/core/app-shell/
+import { PublicKey } from "../state/App.state";
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Profile from '../pages/Profile'
@@ -30,7 +31,12 @@ import {
   IconDeviceDesktopAnalytics,
   IconMessages,
 } from '@tabler/icons';
+import Deso from "deso-protocol";
+import { useRecoilState } from "recoil";
 import ThemeButton from '../components/ThemeButton'
+
+
+const deso = new Deso();
 const useStyles = createStyles((theme, _params, getRef) => {
   const icon = getRef('icon');
   return {
@@ -101,8 +107,7 @@ export default function MantineShell() {
   const [opened, setOpened] = useState(false);
   const { classes, cx } = useStyles();
   const [active, setActive] = useState('Billing');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
- 
+  const [publicKey, setPublicKey] = useRecoilState(PublicKey);
 
   const links = data.map((item) => (
     
@@ -184,10 +189,22 @@ export default function MantineShell() {
           <div style={{ display: 'flex', marginTop: -30, alignItems: 'right', float: 'right', height: '100%' }}>
           
           
-        {isLoggedIn ? (
-        <Button style={{ width: 111 }} onClick={() => setIsLoggedIn(false)}>Logout</Button>
+        {publicKey ? (
+        <Button style={{ width: 111 }} 
+          onClick={ async () => {
+            await deso.identity.logout(publicKey);
+            // eslint-disable-next-line no-restricted-globals
+            location.reload();}}>
+              Logout
+        </Button>
           ) : (
-        <Button style={{ width: 111 }} onClick={() => setIsLoggedIn(true)}>Login</Button>
+        <Button style={{ width: 111 }} 
+        onClick={ async () => {
+          await deso.identity.logout(publicKey);
+          // eslint-disable-next-line no-restricted-globals
+          location.reload();}}>
+            Login
+            </Button>
           )}
         </div>
         </Header>
